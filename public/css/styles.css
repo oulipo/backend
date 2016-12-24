@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+body{
+    font: 16px 'Open Sans',sans-serif;
+}
+ul{
+    width: 400px;
+    margin: 0 auto;
+    line-height:25px;
+    padding: 0;
+    background:#ede7f6;
+}
+li{
+    list-style: none;
+    padding: 5px;
+}
+h1{
+    font-weight:300;
+    text-align: center;
+}
+li:nth-child(3n+1){
+    background: #d1c4e9;
+    border-top: 1px solid black;
+}
+
+form {
+    width: 400px;
+    margin: 0 auto;
+}

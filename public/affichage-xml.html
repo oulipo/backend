@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>affichage</title>
+    <style type="text/css">
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+        body{
+            font: 16px 'Open Sans',sans-serif;
+        }
+        ul{
+            width: 400px;
+            margin: 0 auto;
+			line-height:25px;
+            padding: 0;
+            background:#ede7f6;
+        }
+        li{
+            list-style: none;
+            padding: 5px;
+        }
+		h1{
+			font-weight:300;
+			text-align: center;
+		}
+        li:nth-child(2n+1){
+            background: #d1c4e9;
+        }
+
+    </style>
+</head>
+<body>
+	<h1>Affichage dynamique de données xml</h1>
+    <ul id="liste"></ul>
+	<script type="text/javascript">
+		var x,xmlhttp,xmlDoc
+	    xmlhttp = new XMLHttpRequest();
+	    xmlhttp.open("GET", "produit.xml", false);
+	    xmlhttp.send();
+	    xmlDoc = xmlhttp.responseXML; 
+	    vliste=String("");
+	    x = xmlDoc.getElementsByTagName("produit");
+        console.log(x[0].childNodes[1])
+      
+    for (i = 0; i <x.length; i++) {
+        
+        //variables pour les noeuds
+
+        var nom=x[i].getElementsByTagName("nom")[0].childNodes[0].nodeValue;
+        var marque=x[i].getElementsByTagName("marque")[0].childNodes[0].nodeValue;
+        var prix=x[i].getElementsByTagName("prix")[0].childNodes[0].nodeValue;
+
+        //ajout de chaque propriété dans boucle
+        console.log(nom);
+            vliste += "<li>Nom : "+nom+"</li>";
+            vliste += "<li>Marque : "+marque+"</li>";
+            vliste += "<li>Prix : "+prix+"</li>";
+        //stockage dans un tableau
+        myStock=[];
+        myStock.push(nom,marque,prix);
+          
+         
+          console.log(myStock);
+         
+	     
+	   
+	  }
+		document.getElementById("liste").innerHTML = vliste;
+    </script>
+</body>
+</html>
